@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { MatComponentsModule } from './mat-components.module';
@@ -15,6 +18,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { ManageOrdersComponent } from './components/manage-orders/manage-orders.component';
 import { ManageProductsComponent } from './components/manage-products/manage-products.component';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -33,6 +37,9 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
