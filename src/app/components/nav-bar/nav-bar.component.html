@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+    <button mat-button routerLink="/shopping-cart">Shopping Cart</button>
+    <button mat-button [matMenuTriggerFor]="usernameMenu">
+      Username
+      <i class="material-icons">
+        arrow_drop_down
+      </i>
+    </button>
+    <mat-menu #usernameMenu="matMenu" [overlapTrigger]="false" yPosition="below">
+      <button mat-menu-item routerLink="/my-orders">My Orders</button>
+      <button mat-menu-item routerLink="/manage-orders">Manage Orders</button>
+      <button mat-menu-item routerLink="/manage-products">Manage Products</button>
+      <button mat-menu-item>Log Out</button>
+    </mat-menu>
+  </div>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item routerLink="/">Home</button>
+  <button mat-menu-item routerLink="/products">Products</button>
+  <button mat-menu-item [matMenuTriggerFor]="usernameMenu">Username</button>
+  <!--<button mat-menu-item>Help</button>-->
+</mat-menu>
