@@ -1,17 +1,12 @@
+import { secret } from '../secret';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: 'AIzaSyBXOQUUA9GW0HlDg90VQV99TQXtu5Fk1YI',
-    authDomain: 'e-shop-angular-project.firebaseapp.com',
-    databaseURL: 'https://e-shop-angular-project.firebaseio.com',
-    projectId: 'e-shop-angular-project',
-    storageBucket: 'e-shop-angular-project.appspot.com',
-    messagingSenderId: '380224839430'
-  }
+  firebase: secret.firebase
 };
 
 /*
