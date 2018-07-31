@@ -1,32 +1,56 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="accent">
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <!-- Home button -->
     <button mat-button routerLink="/">
       <mat-icon>home</mat-icon>
       Home
     </button>
+    <!-- Shopping cart button -->
     <button mat-button routerLink="/shopping-cart">Shopping Cart</button>
-    <button mat-button [matMenuTriggerFor]="usernameMenu">
-      Username
+
+    <!-- Username button for logged in us ers -->
+    <button *ngIf="appUser; else anonymousUser" mat-button [matMenuTriggerFor]="usernameMenu">
+      {{ appUser?.name }}
       <i class="material-icons">
         arrow_drop_down
       </i>
     </button>
+
+    <!-- Login Button for anonymous users -->
+    <ng-template #anonymousUser>
+      <button mat-button routerLink="/login">Log in</button>
+    </ng-template>
+
+    <!-- Menu for username button -->
     <mat-menu #usernameMenu="matMenu" [overlapTrigger]="false" yPosition="below">
       <button mat-menu-item routerLink="/my-orders">My Orders</button>
-      <button mat-menu-item routerLink="/admin/orders">Manage Orders</button>
-      <button mat-menu-item routerLink="/admin/products">Manage Products</button>
-      <button mat-menu-item>Log Out</button>
+
+      <ng-container *ngIf="appUser?.isAdmin">
+        <button mat-menu-item routerLink="/admin/orders">Manage Orders</button>
+        <button mat-menu-item routerLink="/admin/products">Manage Products</button>
+      </ng-container>
+
+      <button mat-menu-item (click)="logout()">Log Out</button>
     </mat-menu>
   </div>
+  <!-- Menu button to toggle the main menu for smaller devices -->
   <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
     <mat-icon>menu</mat-icon>
   </button>
-
 </mat-toolbar>
+<!-- The main menu for smaller devices -->
 <mat-menu x-position="before" #menu="matMenu" [overlapTrigger]="false">
   <button mat-menu-item routerLink="/">Home</button>
   <button mat-menu-item routerLink="/shopping-cart">Shopping Cart</button>
-  <button mat-menu-item [matMenuTriggerFor]="usernameMenu">Username</button>
+
+  <button *ngIf="appUser; else anonymousUserMenu" mat-menu-item [matMenuTriggerFor]="usernameMenu">
+    {{ appUser?.name }}
+  </button>
+
+  <ng-template #anonymousUserMenu>
+    <button mat-menu-item routerLink="/login">Log in</button>
+  </ng-template>
+
 </mat-menu>
