@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Router } from '../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -14,12 +14,14 @@ export class AppComponent {
     authService: AuthService,
     router: Router) {
     authService.user$.subscribe(user => {
-      if (user) {
-        userService.save(user);
+      if (!user) return;
+      userService.save(user);
 
-        const returnUrl = localStorage.getItem('returnUrl');
-        router.navigateByUrl(returnUrl);
-      }
+      const returnUrl = localStorage.getItem('returnUrl');
+      if (!returnUrl) return;
+
+      localStorage.removeItem('returnUrl');
+      router.navigateByUrl(returnUrl);
     });
   }
 }
