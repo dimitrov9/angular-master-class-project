@@ -55,10 +55,10 @@ export class ShoppingCartService {
     item$
       .snapshotChanges()
       .pipe(
-        map(a => ({
-          key: a.key,
-          ...a.payload.val()
-        } as ShoppingCartItem)),
+        map(a => new ShoppingCartItem(
+          a.key,
+          a.payload.val().product,
+          a.payload.val().quantity)),
         take(1)
       )
       .subscribe(item => {

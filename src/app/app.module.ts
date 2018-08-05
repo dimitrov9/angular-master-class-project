@@ -97,7 +97,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     ]),
 
     FlexLayoutModule,
-    MatComponentsModule
+    MatComponentsModule,
+
   ],
   providers: [
     { provide: FirebaseOptionsToken, useValue: environment.firebase },

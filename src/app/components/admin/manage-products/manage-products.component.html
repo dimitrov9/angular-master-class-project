@@ -6,34 +6,34 @@
     <input matInput #query (keyup)="applyFilter(query.value)" placeholder="Search...">
 </mat-form-field>
 
-<div class="example-container mat-elevation-z8">
-    <div class="example-loading-shade" *ngIf="isLoadingResults">
+<div class="container mat-elevation-z8">
+    <div class="loading-shade" *ngIf="isLoadingResults">
         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-        <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+        <div class="rate-limit-reached" *ngIf="isRateLimitReached">
             API rate limit has been reached. It will be reset in one minute.
         </div>
     </div>
 
-    <div class="example-table-container">
+    <div class="table-container">
 
-        <table mat-table [dataSource]="dataSource" class="example-table" matSort>
+        <table mat-table [dataSource]="dataSource" class="table" matSort>
             <!-- Title Column -->
             <ng-container matColumnDef="title">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
-                <td mat-cell *matCellDef="let row">{{row.title}}</td>
+                <td mat-cell *matCellDef="let product">{{product.title}}</td>
             </ng-container>
 
             <!-- Number Column -->
             <ng-container matColumnDef="price">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-                <td mat-cell *matCellDef="let row">{{ row.price | currency:'USD' }}</td>
+                <td mat-cell *matCellDef="let product">{{ product.price | currency:'USD' }}</td>
             </ng-container>
 
             <!-- State Column -->
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef></th>
-                <td mat-cell *matCellDef="let row">
-                    <button mat-raised-button [routerLink]="['/admin/products/', row.key]">Edit</button>
+                <td mat-cell *matCellDef="let product">
+                    <button mat-raised-button [routerLink]="['/admin/products/', product.key]">Edit</button>
                 </td>
             </ng-container>
 

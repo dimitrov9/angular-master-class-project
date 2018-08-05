@@ -1,0 +1,9 @@
+.table-container {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+}
+
+tr.mat-footer-row {
+    font-weight: bold;
+}
