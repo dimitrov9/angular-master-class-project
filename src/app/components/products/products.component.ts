@@ -7,6 +7,7 @@ import { Category } from '../../models/category';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { ShoppingCart } from '../../models/shopping-cart';
 
 @Component({
   selector: 'products',
@@ -19,7 +20,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   filteredProducts: Product[] = [];
   categories: Category[] = [];
   selectedCategory: string;
-  cart: any;
+  cart: ShoppingCart;
 
   productsSubscription: Subscription;
   categoriesSubscription: Subscription;
@@ -33,13 +34,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     this.cartSubscription = (await this.cartService.getCart())
-      .snapshotChanges()
-      .pipe(
-        map(a => ({
-          key: a.key,
-          ...a.payload.val()
-        }))
-      )
       .subscribe(cart => this.cart = cart);
 
 
