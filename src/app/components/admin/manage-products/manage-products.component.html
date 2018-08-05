@@ -26,7 +26,7 @@
             <!-- Number Column -->
             <ng-container matColumnDef="price">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-                <td mat-cell *matCellDef="let row">{{ row.price | currency:'USD':true }}</td>
+                <td mat-cell *matCellDef="let row">{{ row.price | currency:'USD' }}</td>
             </ng-container>
 
             <!-- State Column -->
