@@ -7,6 +7,9 @@
     font-size: 17px;
 }
 
-.add-to-cart-btn {
+.full-width-btn {
     width: 100%;
+    min-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
 }

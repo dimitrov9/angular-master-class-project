@@ -10,7 +10,24 @@
     </p>
   </mat-card-content>
   <mat-card-footer *ngIf="showActions">
-    <button mat-raised-button color="primary" class="add-to-cart-btn">Add to Cart</button>
+    <button *ngIf="getQuantity() === 0; else updateQuantity" mat-raised-button color="accent" 
+      class="full-width-btn" (click)="addToCart()"
+      >
+      Add to Cart
+    </button>
+    <ng-template #updateQuantity>
+      <div fxLayout="row">
+        <div fxFlex="20%">
+          <button (click)="removeFromCart()" mat-raised-button color="accent" 
+            class="full-width-btn">-</button>
+        </div>
+        <div fxFlex="60%" fxLayoutAlign="center center">{{ getQuantity() }} in cart</div>
+        <div fxFlex="20%">
+          <button (click)="addToCart()" mat-raised-button color="accent" 
+            class="full-width-btn">+</button>
+        </div>
+      </div>
+    </ng-template>
   </mat-card-footer>
 
 </mat-card>

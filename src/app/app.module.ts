@@ -33,6 +33,7 @@ import { ProductService } from './services/product.service';
 import { ProductFilterSidebarComponent } from './components/products/product-filter/product-filter-sidebar/product-filter-sidebar.component';
 import { ProductFilterXsMenuComponent } from './components/products/product-filter/product-filter-xs-menu/product-filter-xs-menu.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     UserService,
     AdminAuthGuard,
     CategoryService,
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
