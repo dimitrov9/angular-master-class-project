@@ -30,7 +30,9 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
-
+import { ProductFilterSidebarComponent } from './components/products/product-filter/product-filter-sidebar/product-filter-sidebar.component';
+import { ProductFilterXsMenuComponent } from './components/products/product-filter/product-filter-xs-menu/product-filter-xs-menu.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { ProductService } from './services/product.service';
     CheckOutComponent,
     OrderSuccessComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterSidebarComponent,
+    ProductFilterXsMenuComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,7 @@ import { ProductService } from './services/product.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },

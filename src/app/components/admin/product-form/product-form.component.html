@@ -62,16 +62,6 @@
     </form>
   </mat-grid-tile>
   <mat-grid-tile>
-    <mat-card *ngIf="product.title" class="product-card">
-      <img mat-card-image [src]="product.imageUrl" *ngIf="product.imageUrl">
-      <mat-card-header>
-        <mat-card-title class="product-card-title">{{product.title}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          {{ product.price | currency:'USD':true }}
-        </p>
-      </mat-card-content>
-    </mat-card>
+    <product-card [product]="product" [show-actions]="false"></product-card>
   </mat-grid-tile>
 </mat-grid-list>

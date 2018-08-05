@@ -1,0 +1,12 @@
+<button mat-raised-button [matMenuTriggerFor]="categoriesMenu">Categories</button>
+<!-- The menu for filtering categories when the screen is xs -->
+<mat-menu #categoriesMenu="matMenu">
+  <button mat-menu-item routerLink="/" [class.active]="!selectedCategory" >All Categories</button>
+  <button mat-menu-item 
+    *ngFor="let category of categories"
+    routerLink="/"
+    [queryParams]="{ category: category.key }"
+    [class.active]="selectedCategory === category.key"
+    >{{ category.name }}
+  </button>
+</mat-menu>

@@ -11,7 +11,8 @@ import {
   MatGridListModule,
   MatProgressSpinnerModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatListModule
 } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 @NgModule({
@@ -28,7 +29,8 @@ import { MatTableModule } from '@angular/material/table';
     MatProgressSpinnerModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatListModule
   ]
 })
 export class MatComponentsModule { }

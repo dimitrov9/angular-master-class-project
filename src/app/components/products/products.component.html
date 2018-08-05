@@ -1,3 +1,24 @@
-<p>
-  products works!
-</p>
+<div fxLayout.xs="column" fxLayout.gt-xs="row">
+  <!-- The sidebar for filtering categories -->
+  <div fxFlex="25" fxShow.xs="false" fxShow.gt-xs="true">
+    <product-filter-sidebar [categories]="categories" [selectedCategory]="selectedCategory">
+    </product-filter-sidebar>
+  </div>
+
+  <!-- Button to toggle Categories -->
+  <div fxFlex="100" fxShow.gt-xs="false" fxShow.xs="true">
+    <product-filter-xs-menu [categories]="categories" [selectedCategory]="selectedCategory">
+    </product-filter-xs-menu>
+  </div>
+
+  <div fxFlex.gt-xs="75" fxFlex.xs="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <!-- Error handling for no products -->
+    <h4 *ngIf="selectedCategory && filteredProducts.length === 0">There are no products in this category.</h4>
+    <h4 *ngIf="!selectedCategory && filteredProducts.length === 0">There are no products yet.</h4>
+    <!-- The listing of the Products -->
+    <ng-container *ngFor="let product of filteredProducts">
+      <product-card [product]="product" [show-actions]="true" fxFlex.xs="44" fxFlex.gt-xs="29">
+      </product-card>
+    </ng-container>
+  </div>
+</div>

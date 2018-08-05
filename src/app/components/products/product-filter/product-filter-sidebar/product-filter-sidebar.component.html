@@ -1,0 +1,15 @@
+<mat-nav-list class="categories-sidebar">
+  <h3 mat-subheader>Categories</h3>
+  <a mat-list-item routerLink="/" [class.active]="!selectedCategory">
+    All Categories
+  </a>
+  <a 
+    *ngFor="let category of categories" 
+    mat-list-item
+    routerLink="/"
+    [queryParams]="{ category: category.key }"
+    [class.active]="selectedCategory === category.key"
+    >
+    {{ category.name }}  
+  </a>
+</mat-nav-list> 

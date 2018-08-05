@@ -1,5 +1,9 @@
-<nav-bar></nav-bar>
+<div fxLayout="column" fxLayoutAlign="center" fxShow.sm>
+    <nav-bar></nav-bar>
 
-<div class="container">
-    <router-outlet></router-outlet>
+    <div class="content" fxLayoutAlign="center"> 
+        <div fxFlex.lt-sm="100" fxFlex.gt-sm="80%">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

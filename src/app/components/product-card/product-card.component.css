@@ -1,0 +1,12 @@
+.product-card {
+    margin: 2%;
+    max-width: 300px;
+}
+
+.product-card-title{
+    font-size: 17px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+}

@@ -1,0 +1,11 @@
+.categories-sidebar {
+    position: fixed;
+}
+.active {
+    background-color: #673ab7!important;
+    color: white;
+  }
+  .active:hover {
+    background-color: #673ab7;
+    color: black;
+  }
