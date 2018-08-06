@@ -34,6 +34,7 @@ import { ProductFilterSidebarComponent } from './components/products/product-fil
 import { ProductFilterXsMenuComponent } from './components/products/product-filter/product-filter-xs-menu/product-filter-xs-menu.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     ProductFormComponent,
     ProductFilterSidebarComponent,
     ProductFilterXsMenuComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,

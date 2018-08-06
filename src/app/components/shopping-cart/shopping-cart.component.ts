@@ -11,7 +11,6 @@ import { ShoppingCart } from '../../models/shopping-cart';
 export class ShoppingCartComponent implements OnInit, OnDestroy {
   cart: ShoppingCart;
 
-  mappedCartItems: ShoppingCartItemForTable[] = [];
   displayedColumns: string[] = ['product', 'quantity', 'price'];
 
   cartSubscription: Subscription;
@@ -22,23 +21,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     this.cartSubscription = (await this.cartService.getCart())
       .subscribe(cart => {
         this.cart = cart;
-
-        this.mappedCartItems = cart.items.map(item => ({
-          product: item.product.title,
-          quantity: item.quantity,
-          price: item.totalPrice
-        }) as ShoppingCartItemForTable);
       });
   }
 
   ngOnDestroy() {
     this.cartSubscription.unsubscribe();
   }
-
-}
-
-interface ShoppingCartItemForTable {
-  product: string;
-  quantity: number;
-  price: number;
 }

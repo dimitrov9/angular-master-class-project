@@ -1,4 +1,5 @@
 import { ShoppingCartItem } from "./shopping-cart-item";
+import { Product } from "./product/product";
 
 export class ShoppingCart {
     items: ShoppingCartItem[] = [];
@@ -7,14 +8,19 @@ export class ShoppingCart {
         public key: string,
         public itemsObject: { [key: string]: ShoppingCartItem }
     ) {
+        this.itemsObject = itemsObject || {};
+
         Object.keys(this.itemsObject).forEach(key => {
-            let item = itemsObject[key];
-            this.items.push(new ShoppingCartItem(
-                key,
-                item.product,
-                item.quantity
-            ));
+            this.items.push(new ShoppingCartItem({
+                ...itemsObject[key],
+                key: key
+            }));
         });
+    }
+
+    getQuantity(product: Product) {
+        let item = this.itemsObject[product.key];
+        return item ? item.quantity : 0;
     }
 
     get totalItemsCount() {

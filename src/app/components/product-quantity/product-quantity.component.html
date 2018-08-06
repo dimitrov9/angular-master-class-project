@@ -1,0 +1,13 @@
+<div fxLayout="row">
+  <div fxFlex="20%">
+    <button (click)="removeFromCart()" mat-raised-button 
+    color="accent" class="full-width-btn">-</button>
+  </div>
+  <div fxFlex="60%" fxLayoutAlign="center center">
+    {{ shoppingCart.getQuantity(product) }} in cart
+  </div>
+  <div fxFlex="20%">
+    <button (click)="addToCart()" mat-raised-button 
+    color="accent" class="full-width-btn">+</button>
+  </div>
+</div>
