@@ -11,7 +11,7 @@ import { ShoppingCart } from '../../models/shopping-cart';
 export class ShoppingCartComponent implements OnInit, OnDestroy {
   cart: ShoppingCart;
 
-  displayedColumns: string[] = ['product', 'quantity', 'price'];
+  displayedColumns: string[] = ['image','product', 'quantity', 'price'];
 
   cartSubscription: Subscription;
 
@@ -22,6 +22,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       .subscribe(cart => {
         this.cart = cart;
       });
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
   }
 
   ngOnDestroy() {

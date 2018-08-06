@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Product } from '../../models/product/product';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/category';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingCart } from '../../models/shopping-cart';
 
@@ -14,17 +14,14 @@ import { ShoppingCart } from '../../models/shopping-cart';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  categories: Category[] = [];
   selectedCategory: string;
-  cart: ShoppingCart;
 
-  productsSubscription: Subscription;
-  categoriesSubscription: Subscription;
-  cartSubscription: Subscription;
+  cart$: Observable<ShoppingCart>;
+  categories$: Observable<Category[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,11 +30,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
     private cartService: ShoppingCartService) { }
 
   async ngOnInit() {
-    this.cartSubscription = (await this.cartService.getCart())
-      .subscribe(cart => this.cart = cart);
+    this.cart$ = await this.cartService.getCart();
+    this.categories$ = this.categoryService.getAll();
+    this.populateProducts();
+  }
 
-
-    this.productsSubscription = this.productService.getAll()
+  private populateProducts() {
+    this.productService.getAll()
       .pipe(
         switchMap(products => {
           this.products = products;
@@ -46,21 +45,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
       )
       .subscribe(params => {
         this.selectedCategory = params.get('category');
-
-        this.filteredProducts = (this.selectedCategory) ?
-          this.products.filter(p => p.category === this.selectedCategory) :
-          this.products;
+        this.applyFilter();
       });
-
-    this.categoriesSubscription = this.categoryService.getAll()
-      .subscribe(categories => this.categories = categories);
-
   }
 
-  ngOnDestroy(): void {
-    this.productsSubscription.unsubscribe();
-    this.categoriesSubscription.unsubscribe();
-    this.cartSubscription.unsubscribe();
+  private applyFilter() {
+    this.filteredProducts = (this.selectedCategory) ?
+      this.products.filter(p => p.category === this.selectedCategory) :
+      this.products;
   }
-
 }

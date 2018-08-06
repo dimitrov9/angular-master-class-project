@@ -6,7 +6,7 @@ export class ShoppingCart {
 
     constructor(
         public key: string,
-        public itemsObject: { [key: string]: ShoppingCartItem }
+        private itemsObject: { [key: string]: ShoppingCartItem }
     ) {
         this.itemsObject = itemsObject || {};
 
