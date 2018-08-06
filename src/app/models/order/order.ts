@@ -1,7 +1,10 @@
+import { Shipping } from "./shipping";
+import { OrderItem } from "./order-item";
+
 export interface Order {
     key: string;
-    name: string;
-    address1:string;
-    address2:string;
-    city: string;
+    userID: string;
+    datePlaced: number;
+    shipping: Shipping;
+    items: OrderItem[];
 }

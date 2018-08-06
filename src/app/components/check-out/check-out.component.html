@@ -4,17 +4,17 @@
     <form #f="ngForm" (ngSubmit)="placeOrder(f.value)" class="flex-form">
       <!-- Name -->
       <mat-form-field class="full-width">
-        <input #name="ngModel" ngModel name="title" matInput 
-        placeholder="Title" required [errorStateMatcher]="errorStateMatcher">
+        <input #name="ngModel" [(ngModel)]="shipping.name" name="name" matInput 
+        placeholder="Name" required [errorStateMatcher]="errorStateMatcher">
         <mat-error *ngIf="name.hasError('required')">
-            Title is
+            Name is
             <strong>required</strong>
           </mat-error>
       </mat-form-field>
 
       <!-- Adress Line 1 -->
       <mat-form-field class="full-width">
-        <input #address1="ngModel" ngModel name="address1" matInput 
+        <input #address1="ngModel" [(ngModel)]="shipping.address1" name="address1" matInput 
         placeholder="Address 1" required [errorStateMatcher]="errorStateMatcher">
         <mat-error *ngIf="address1.hasError('required')">
             Address is
@@ -24,13 +24,13 @@
 
       <!-- Adress Line 2 -->
       <mat-form-field class="full-width">
-        <input #address2="ngModel" ngModel name="address2" matInput 
+        <input #address2="ngModel" [(ngModel)]="shipping.address2" name="address2" matInput 
         placeholder="Address 2">
       </mat-form-field>
 
       <!-- City -->
       <mat-form-field class="full-width">
-        <input #city="ngModel" ngModel name="city" matInput 
+        <input #city="ngModel" [(ngModel)]="shipping.city" name="city" matInput 
         placeholder="City" required [errorStateMatcher]="errorStateMatcher">
         <mat-error *ngIf="city.hasError('required')">
             City is

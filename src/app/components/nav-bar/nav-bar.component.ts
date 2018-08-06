@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { AppUser } from '../../models/app-user';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ShoppingCart } from '../../models/shopping-cart';
-import { Observable } from '../../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'nav-bar',
