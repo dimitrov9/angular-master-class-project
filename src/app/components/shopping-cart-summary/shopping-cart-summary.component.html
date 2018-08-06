@@ -1,0 +1,26 @@
+<mat-card *ngIf="shoppingCart">
+  <mat-card-header>
+    <mat-card-title>Order Summary</mat-card-title>
+    <mat-card-subtitle>
+      You have {{shoppingCart.totalItemsCount}} items in your shopping cart.
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="shoppingCart.items" class="table-container mat-elevation-z8">
+      <!-- Total Column -->
+      <ng-container matColumnDef="total">
+        <td mat-cell *matCellDef="let item"> {{item.quantity}} x {{item.title}} </td>
+        <td mat-footer-cell *matFooterCellDef>Total</td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <td mat-cell *matCellDef="let item" class="text-align-right"> {{item.totalPrice | currency:'USD'}} </td>
+        <td mat-footer-cell *matFooterCellDef class="text-align-right">{{shoppingCart.totalPrice | currency:'USD'}}</td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: ['total','price'];"></tr>
+      <tr mat-footer-row *matFooterRowDef="['total','price']"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

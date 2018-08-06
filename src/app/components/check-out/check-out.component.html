@@ -1,47 +1,10 @@
 <h1>Shipping</h1>
-<div fxLayout="row-reversed" fxLayout.xs="column">
-  <div fxFlex="50%" fxFlex.xs="100%">
-    <form #f="ngForm" (ngSubmit)="placeOrder(f.value)" class="flex-form">
-      <!-- Name -->
-      <mat-form-field class="full-width">
-        <input #name="ngModel" [(ngModel)]="shipping.name" name="name" matInput 
-        placeholder="Name" required [errorStateMatcher]="errorStateMatcher">
-        <mat-error *ngIf="name.hasError('required')">
-            Name is
-            <strong>required</strong>
-          </mat-error>
-      </mat-form-field>
-
-      <!-- Adress Line 1 -->
-      <mat-form-field class="full-width">
-        <input #address1="ngModel" [(ngModel)]="shipping.address1" name="address1" matInput 
-        placeholder="Address 1" required [errorStateMatcher]="errorStateMatcher">
-        <mat-error *ngIf="address1.hasError('required')">
-            Address is
-            <strong>required</strong>
-          </mat-error>
-      </mat-form-field>
-
-      <!-- Adress Line 2 -->
-      <mat-form-field class="full-width">
-        <input #address2="ngModel" [(ngModel)]="shipping.address2" name="address2" matInput 
-        placeholder="Address 2">
-      </mat-form-field>
-
-      <!-- City -->
-      <mat-form-field class="full-width">
-        <input #city="ngModel" [(ngModel)]="shipping.city" name="city" matInput 
-        placeholder="City" required [errorStateMatcher]="errorStateMatcher">
-        <mat-error *ngIf="city.hasError('required')">
-            City is
-            <strong>required</strong>
-          </mat-error>
-      </mat-form-field>
-
-      <!-- Place Order Button (Submit) -->
-      <button mat-raised-button color="primary">Place Order</button>
-    </form>
+<div *ngIf="cart$ | async as cart" fxLayout="row" fxLayout.xs="column-reverse">
+  <div fxFlex="50%" fxFlex.xs="100%" class="form">
+    <shipping-form [shopping-cart]="cart"></shipping-form>
   </div>
-  <div fxFlex="50%" fxFlex.xs="100%"></div>
 
+  <div fxFlex="50%" fxFlex.xs="100%">
+    <shopping-cart-summary [shopping-cart]="cart"></shopping-cart-summary>
+  </div>
 </div>
