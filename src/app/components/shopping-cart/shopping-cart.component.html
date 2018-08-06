@@ -1,10 +1,10 @@
 <h1>Shopping Cart</h1>
-<div fxLayout="column" *ngIf="cart">
+<div fxLayout="column" *ngIf="cart$ | async as cart">
   <p>
     You have {{ cart.totalItemsCount }} items in your shopping cart.
   </p>
 
-  <div>
+  <div fxLayout="row">
     <table fxFlex.lt-sm="100%" fxFlex.sm="90%" fxFlex.md="90%" fxFlex.gt-md="80%" 
       mat-table [dataSource]="cart.items" class="table-container mat-elevation-z8">
       <!-- Thumbnail image Column -->
@@ -47,12 +47,15 @@
     </table>
   </div>
 
-
   <div>
-    <button (click)="clearCart()" mat-raised-button color="warn" class="clear-button">
+    <a *ngIf="cart.items.length" routerLink="/check-out"
+      mat-raised-button color="primary">
+      Check Out
+    </a>
+    <button *ngIf="cart.items.length" (click)="clearCart()" 
+      mat-raised-button color="warn" class="clear-button">
       Clear Shopping Cart
     </button>
   </div>
-
 
 </div>

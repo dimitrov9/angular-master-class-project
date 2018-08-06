@@ -2,21 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../services/category.service';
 import { Observable } from 'rxjs';
 import { Category } from '../../../models/category';
-import { NewProductDto } from '../../../models/product/new-product-dto';
+import { NewProduct } from '../../../models/product/new-product';
 import { ProductService } from '../../../services/product.service';
-import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Product } from '../../../models/product/product';
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { MyErrorStateMatcher } from '../../../my-error-state-matcher';
 
 @Component({
   selector: 'product-form',
@@ -52,7 +43,7 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
-  save(product: NewProductDto) {
+  save(product: NewProduct) {
     if (this.id) {
       this.productService.update(this.id, product);
     } else {
