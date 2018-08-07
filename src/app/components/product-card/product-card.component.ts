@@ -14,8 +14,9 @@ import { ShoppingCart } from '../../models/shopping-cart';
 export class ProductCardComponent {
 
   @Input('product') product: Product;
-  @Input('show-actions') showActions: boolean;
-  @Input('shopping-cart') shoppingCart: ShoppingCart;
+  @Input('showActions') showActions: boolean;
+  @Input('shoppingCart') shoppingCart: ShoppingCart;
+  @Input('isImageUrlValid') isImageUrlValid = true;
 
   constructor(private cartService: ShoppingCartService) { }
 

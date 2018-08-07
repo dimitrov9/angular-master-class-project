@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product/product';
-import { MatPaginator, MatSort, Sort, MatTableDataSource } from '@angular/material';
-import { merge, Observable, of as observableOf, Subscription, of } from 'rxjs';
-import { catchError, map, startWith, switchMap, take } from 'rxjs/operators';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { merge, of as observableOf, Subscription } from 'rxjs';
+import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'manage-products',
@@ -11,7 +11,7 @@ import { catchError, map, startWith, switchMap, take } from 'rxjs/operators';
   styleUrls: ['./manage-products.component.css']
 })
 export class ManageProductsComponent implements OnInit, OnDestroy {
-  products: Product[];
+  products: MatTableDataSource<Product[]>;
   displayedColumns: string[] = ['title', 'price', 'edit'];
 
   resultsLength = 0;
@@ -21,7 +21,6 @@ export class ManageProductsComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   subscription: Subscription;
-  dataSource: MatTableDataSource<Product[]>;
 
   constructor(private productService: ProductService) { }
 
@@ -51,22 +50,21 @@ export class ManageProductsComponent implements OnInit, OnDestroy {
           return observableOf([]);
         })
       ).subscribe(products => {
-        this.products = products;
-        this.dataSource = new MatTableDataSource(products);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
+        this.products = new MatTableDataSource(products);
+        this.products.sort = this.sort;
+        this.products.paginator = this.paginator;
       });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
+// todo implement filter properly
   applyFilter(query: string) {
-    this.dataSource.filter = query.trim().toLowerCase();
+    this.products.filter = query.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if (this.products.paginator) {
+      this.products.paginator.firstPage();
     }
   }
 }

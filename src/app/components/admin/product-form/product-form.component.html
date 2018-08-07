@@ -64,15 +64,15 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="primary">Save</button>
-      <button type="button" (click)="delete()" mat-raised-button 
-        color="warn">
+      <button [disabled]="f.invalid" mat-raised-button color="primary">Save</button>
+      <button *ngIf="product.key" type="button" (click)="delete()" 
+        mat-raised-button color="warn">
         Delete
       </button>
     </form>
   </mat-grid-tile>
   <mat-grid-tile>
-    <product-card [product]="product" [show-actions]="false">
+    <product-card [product]="product" [showActions]="false" [isImageUrlValid]="imageUrl.valid">
     </product-card>
   </mat-grid-tile>
 </mat-grid-list>

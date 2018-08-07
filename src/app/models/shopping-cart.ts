@@ -10,16 +10,16 @@ export class ShoppingCart {
     ) {
         this.itemsObject = itemsObject || {};
 
-        Object.keys(this.itemsObject).forEach(key => {
+        Object.keys(this.itemsObject).forEach(itemKey => {
             this.items.push(new ShoppingCartItem({
-                ...itemsObject[key],
-                key: key
+                ...itemsObject[itemKey],
+                key: itemKey
             }));
         });
     }
 
     getQuantity(product: Product) {
-        let item = this.itemsObject[product.key];
+        const item = this.itemsObject[product.key];
         return item ? item.quantity : 0;
     }
 
@@ -27,7 +27,7 @@ export class ShoppingCart {
         let count = 0;
         Object.keys(this.itemsObject).forEach(key => {
             count += this.itemsObject[key].quantity;
-        })
+        });
         return count;
     }
 

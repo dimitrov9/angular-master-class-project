@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { NewProductDto } from '../models/product/new-product-dto';
+import { NewProduct } from '../models/product/new-product';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product/product';
@@ -12,7 +12,7 @@ export class ProductService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  create(product: NewProductDto) {
+  create(product: NewProduct) {
     return this.db.list('/products').push(product);
   }
 

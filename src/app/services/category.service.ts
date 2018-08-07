@@ -16,7 +16,8 @@ export class CategoryService {
       .snapshotChanges()
       .pipe(
         map(list => {
-          return list.map(a => ({ key: a.key, ...a.payload.val() }));
+          return list.map(a => (
+            { key: a.key, ...a.payload.val() }) as Category);
         })
       );
   }

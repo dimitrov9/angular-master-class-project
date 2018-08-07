@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class NavBarComponent implements OnInit {
   appUser: AppUser;
-  cart$: Observable<ShoppingCart>
+  cart$: Observable<ShoppingCart>;
 
   constructor(
     private authService: AuthService,

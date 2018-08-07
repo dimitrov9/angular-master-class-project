@@ -1,5 +1,3 @@
-import { Product } from "./product/product";
-
 export class ShoppingCartItem {
     public key: string;
     public title: string;

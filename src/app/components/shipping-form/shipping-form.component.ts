@@ -18,7 +18,7 @@ import { ShoppingCart } from '../../models/shopping-cart';
 })
 export class ShippingFormComponent implements OnInit, OnDestroy {
 
-  @Input('shopping-cart') cart: ShoppingCart;
+  @Input('shoppingCart') shoppingCart: ShoppingCart;
   shipping: Shipping = new Shipping();
   userID: string;
 
@@ -40,8 +40,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   }
 
   async placeOrder() {
-    let newOrder = new NewOrder(this.userID, this.shipping, this.cart);
-    let result = await this.orderService.placeOrder(newOrder);
+    const newOrder = new NewOrder(this.userID, this.shipping, this.shoppingCart);
+    const result = await this.orderService.placeOrder(newOrder);
     this.router.navigate(['/order-success', result.key]);
   }
 

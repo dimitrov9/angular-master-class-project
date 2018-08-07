@@ -1,10 +1,10 @@
 <h1>Shipping</h1>
 <div *ngIf="cart$ | async as cart" fxLayout="row" fxLayout.xs="column-reverse">
   <div fxFlex="50%" fxFlex.xs="100%" class="form">
-    <shipping-form [shopping-cart]="cart"></shipping-form>
+    <shipping-form [shoppingCart]="cart"></shipping-form>
   </div>
 
   <div fxFlex="50%" fxFlex.xs="100%">
-    <shopping-cart-summary [shopping-cart]="cart"></shopping-cart-summary>
+    <shopping-cart-summary [shoppingCart]="cart"></shopping-cart-summary>
   </div>
 </div>

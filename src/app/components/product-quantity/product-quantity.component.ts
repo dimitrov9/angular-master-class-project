@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product/product';
 import { ShoppingCart } from '../../models/shopping-cart';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
@@ -12,7 +12,7 @@ import { ShoppingCartItem } from '../../models/shopping-cart-item';
 export class ProductQuantityComponent {
 
   @Input('product') product: Product | ShoppingCartItem;
-  @Input('shopping-cart') shoppingCart: ShoppingCart;
+  @Input('shoppingCart') shoppingCart: ShoppingCart;
 
   constructor(private cartService: ShoppingCartService) { }
 
@@ -20,7 +20,7 @@ export class ProductQuantityComponent {
     this.cartService.addToCart(this.product);
   }
 
-  removeFromCart(){
+  removeFromCart() {
     this.cartService.removeFromCart(this.product);
   }
 }

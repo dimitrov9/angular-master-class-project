@@ -10,5 +10,5 @@ import { ShoppingCart } from '../../models/shopping-cart';
   ]
 })
 export class ShoppingCartSummaryComponent {
-  @Input('shopping-cart') shoppingCart: ShoppingCart;
+  @Input('shoppingCart') shoppingCart: ShoppingCart;
 }

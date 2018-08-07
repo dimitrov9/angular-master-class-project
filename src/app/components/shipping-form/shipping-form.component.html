@@ -34,7 +34,6 @@
         <strong>required</strong>
       </mat-error>
   </mat-form-field>
-
   <!-- Place Order Button (Submit) -->
-  <button mat-raised-button color="primary">Place Order</button>
+  <button [disabled]="f.invalid" mat-raised-button color="primary">Place Order</button>
 </form>

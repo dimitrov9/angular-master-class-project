@@ -1,3 +1,45 @@
-<p>
-  my-orders works!
-</p>
+<mat-form-field>
+    <input matInput #query (keyup)="applyFilter(query.value)" placeholder="Search...">
+</mat-form-field>
+
+<div class="container mat-elevation-z8">
+    <div class="loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <div class="rate-limit-reached" *ngIf="isRateLimitReached">
+            API rate limit has been reached. It will be reset in one minute.
+        </div>
+    </div>
+
+    <div class="table-container">
+
+        <table mat-table [dataSource]="orders" class="table" matSort>
+            <!-- Customer Column -->
+            <ng-container matColumnDef="customer">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer</th>
+                <td mat-cell *matCellDef="let order">{{order.shipping.name}}</td>
+            </ng-container>
+
+            <!-- Date Column -->
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                <td mat-cell *matCellDef="let order">{{ order.datePlaced | date }}</td>
+            </ng-container>
+
+            <!-- View Column -->
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let order">
+                    <button mat-raised-button [routerLink]="['/admin/orders/', order.key]">View</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <mat-paginator 
+        [length]="resultsLength" [pageSize]="10" 
+        [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+</div>

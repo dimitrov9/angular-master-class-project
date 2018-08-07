@@ -21,7 +21,7 @@
     <h4 *ngIf="!selectedCategory && filteredProducts.length === 0">There are no products yet.</h4>
     <!-- The listing of the Products -->
       <ng-container *ngFor="let product of filteredProducts">
-        <product-card [product]="product" [show-actions]="true" [shopping-cart]="cart" 
+        <product-card [product]="product" [showActions]="true" [shoppingCart]="cart" 
           fxFlex.xs="44" fxFlex.gt-xs="29"></product-card>
       </ng-container>
   </div>

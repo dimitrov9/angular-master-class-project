@@ -1,6 +1,6 @@
 <mat-card class="product-card" *ngIf="product.title">
 
-  <img mat-card-image [src]="product.imageUrl" *ngIf="product.imageUrl" alt="{{product.title}}">
+  <img *ngIf="product.imageUrl && isImageUrlValid" mat-card-image [src]="product.imageUrl" alt="{{product.title}}">
   <mat-card-header>
     <mat-card-title class="product-card-title">{{product.title}}</mat-card-title>
   </mat-card-header>
@@ -16,7 +16,7 @@
       Add to Cart
     </button>
     <ng-template #updateQuantity>
-      <product-quantity [shopping-cart]="shoppingCart" [product]="product"></product-quantity>
+      <product-quantity [shoppingCart]="shoppingCart" [product]="product"></product-quantity>
     </ng-template>
   </mat-card-footer>
 

@@ -3,7 +3,7 @@ export interface OrderItem {
         title: string;
         imageUrl: string;
         price: number;
-    },
+    };
     quantity: number;
     totalPrice: number;
 }
