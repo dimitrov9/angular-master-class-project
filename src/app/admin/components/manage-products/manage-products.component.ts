@@ -14,7 +14,7 @@ import { catchError, map, startWith, switchMap } from 'rxjs/operators';
   ]
 })
 export class ManageProductsComponent implements OnInit, OnDestroy {
-  products: MatTableDataSource<Product[]>;
+  products: MatTableDataSource<Product>;
   displayedColumns: string[] = ['title', 'price', 'edit'];
 
   resultsLength = 0;

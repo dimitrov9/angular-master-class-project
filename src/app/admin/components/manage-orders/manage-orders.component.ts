@@ -14,7 +14,7 @@ import { startWith, switchMap, map, catchError } from 'rxjs/operators';
   ]
 })
 export class ManageOrdersComponent implements OnInit, OnDestroy {
-  orders: MatTableDataSource<Order[]>;
+  orders: MatTableDataSource<Order>;
   displayedColumns: string[] = ['customer', 'date', 'view'];
 
   resultsLength = 0;
@@ -55,13 +55,19 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
         this.orders = new MatTableDataSource(orders);
         this.orders.sort = this.sort;
         this.orders.paginator = this.paginator;
+
+        /* configure filter */
+        this.orders.filterPredicate =
+          (data: Order, filter: string) =>
+            (data.shipping.name.trim().toLowerCase().indexOf(filter) !== -1 ||
+            new Date(data.datePlaced).toLocaleDateString('en-GB').indexOf(filter) !== -1);
       });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-// todo implement filter
+  // todo implement filter
   applyFilter(query: string) {
     this.orders.filter = query.trim().toLowerCase();
 

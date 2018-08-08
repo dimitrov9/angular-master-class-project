@@ -1,0 +1,323 @@
+{
+  "categories" : {
+    "bread" : {
+      "name" : "Bread"
+    },
+    "dairy" : {
+      "name" : "Dairy"
+    },
+    "fruits" : {
+      "name" : "Fruits"
+    },
+    "seasonings" : {
+      "name" : "Seasonings and Spices"
+    },
+    "vegetables" : {
+      "name" : "Vegetables"
+    }
+  },
+  "orders" : {
+    "-LJJ2B1x4PxHq3DVUTK3" : {
+      "datePlaced" : 1533639706128,
+      "items" : [ {
+        "product" : {
+          "imageUrl" : "assets\\Images\\spinach-leaves-1461774375kTU.jpg",
+          "price" : 2.5,
+          "title" : "Spinach"
+        },
+        "quantity" : 3,
+        "totalPrice" : 7.5
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\bread-food-healthy-breakfast.jpg",
+          "price" : 3,
+          "title" : "Freshly Baked Bread"
+        },
+        "quantity" : 1,
+        "totalPrice" : 3
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\1024px-Bananas.jpg",
+          "price" : 1.25,
+          "title" : "Banana"
+        },
+        "quantity" : 2,
+        "totalPrice" : 2.5
+      } ],
+      "shipping" : {
+        "address1" : "7431 m72 nw",
+        "address2" : "Apt/Suit",
+        "city" : "Williamsburg",
+        "name" : "Nikola Dimitrov"
+      },
+      "userID" : "tBEEuSeMTaOHH44HlLF5Wb3sqx03"
+    },
+    "-LJJ4AeVtTiHI7LjOtoz" : {
+      "datePlaced" : 1533640228866,
+      "items" : [ {
+        "product" : {
+          "imageUrl" : "assets\\Images\\Lettuce_Mini_Heads_(7331119710).jpg",
+          "price" : 1,
+          "title" : "Lettuce"
+        },
+        "quantity" : 4,
+        "totalPrice" : 4
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\1024px-Bananas.jpg",
+          "price" : 1.25,
+          "title" : "Banana"
+        },
+        "quantity" : 4,
+        "totalPrice" : 5
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\Seasoning-Powder-Curry-Spice-Ingredient-Turmeric-2344157.jpg",
+          "price" : 0.75,
+          "title" : "Ground Turmeric"
+        },
+        "quantity" : 3,
+        "totalPrice" : 2.25
+      } ],
+      "shipping" : {
+        "address1" : "7431 m72 nw",
+        "address2" : "Apt/Suit",
+        "city" : "Williamsburg",
+        "name" : "Nikola Dimitrov"
+      },
+      "userID" : "tBEEuSeMTaOHH44HlLF5Wb3sqx03"
+    },
+    "-LJL3-nHh6jbbtNRPP9j" : {
+      "datePlaced" : 1533673476652,
+      "items" : [ {
+        "product" : {
+          "imageUrl" : "assets\\Images\\spinach-leaves-1461774375kTU.jpg",
+          "price" : 2.5,
+          "title" : "Spinach"
+        },
+        "quantity" : 3,
+        "totalPrice" : 7.5
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\bread-food-healthy-breakfast.jpg",
+          "price" : 3,
+          "title" : "Freshly Baked Bread"
+        },
+        "quantity" : 2,
+        "totalPrice" : 6
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\Lettuce_Mini_Heads_(7331119710).jpg",
+          "price" : 1,
+          "title" : "Lettuce"
+        },
+        "quantity" : 3,
+        "totalPrice" : 3
+      } ],
+      "shipping" : {
+        "address1" : "7431 m72 nw",
+        "address2" : "Apt/Suit",
+        "city" : "Williamsburg",
+        "name" : "Nikola Dimitrov"
+      },
+      "userID" : "tBEEuSeMTaOHH44HlLF5Wb3sqx03"
+    },
+    "-LJLKRsMFtYwgByN0whh" : {
+      "datePlaced" : 1533678048135,
+      "items" : [ {
+        "product" : {
+          "imageUrl" : "assets\\Images\\bread-food-healthy-breakfast.jpg",
+          "price" : 3,
+          "title" : "Freshly Baked Bread"
+        },
+        "quantity" : 2,
+        "totalPrice" : 6
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\Lettuce_Mini_Heads_(7331119710).jpg",
+          "price" : 1,
+          "title" : "Lettuce"
+        },
+        "quantity" : 3,
+        "totalPrice" : 3
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\Cauliflowers_-_20051021.jpg",
+          "price" : 1.75,
+          "title" : "Cauliflower"
+        },
+        "quantity" : 4,
+        "totalPrice" : 7
+      } ],
+      "shipping" : {
+        "address1" : "7431 m72 nw",
+        "address2" : "Apt/Suit",
+        "city" : "Williamsburg",
+        "name" : "Nikola Dimitrov"
+      },
+      "userID" : "tBEEuSeMTaOHH44HlLF5Wb3sqx03"
+    },
+    "-LJLgopdsZ0watuSop62" : {
+      "datePlaced" : 1533684175615,
+      "items" : [ {
+        "product" : {
+          "imageUrl" : "assets\\Images\\bread-food-healthy-breakfast.jpg",
+          "price" : 3,
+          "title" : "Freshly Baked Bread"
+        },
+        "quantity" : 4,
+        "totalPrice" : 12
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\avocado-1286996_1280.jpg",
+          "price" : 1.75,
+          "title" : "Avacado"
+        },
+        "quantity" : 1,
+        "totalPrice" : 1.75
+      }, {
+        "product" : {
+          "imageUrl" : "assets\\Images\\1024px-Bananas.jpg",
+          "price" : 1.25,
+          "title" : "Banana"
+        },
+        "quantity" : 3,
+        "totalPrice" : 3.75
+      } ],
+      "shipping" : {
+        "address1" : "dada",
+        "city" : "dadade",
+        "name" : "dada dede"
+      },
+      "userID" : "tBEEuSeMTaOHH44HlLF5Wb3sqx03"
+    }
+  },
+  "products" : {
+    "-KrqgOLs07ZkbapP4EGi" : {
+      "category" : "vegetables",
+      "imageUrl" : "assets\\Images\\spinach-leaves-1461774375kTU.jpg",
+      "price" : 2.5,
+      "title" : "Spinach"
+    },
+    "-KrrIkDT19XhPgWo0T0A" : {
+      "category" : "bread",
+      "imageUrl" : "assets\\Images\\bread-food-healthy-breakfast.jpg",
+      "price" : 3,
+      "title" : "Freshly Baked Bread"
+    },
+    "-KrvrXbV3rqnFEru_ojw" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\avocado-1286996_1280.jpg",
+      "price" : 1.75,
+      "title" : "Avacado"
+    },
+    "-KrvrgogC3oac5k83Awt" : {
+      "category" : "vegetables",
+      "imageUrl" : "assets\\Images\\food-wood-tomatoes.jpg",
+      "price" : 2.5,
+      "title" : "Tomato"
+    },
+    "-Krvrt2nkeRw2HCbiGDj" : {
+      "category" : "vegetables",
+      "imageUrl" : "assets\\Images\\Lettuce_Mini_Heads_(7331119710).jpg",
+      "price" : 1,
+      "title" : "Lettuce"
+    },
+    "-Krvs0ZZBpz5GuM0RfC8" : {
+      "category" : "vegetables",
+      "imageUrl" : "assets\\Images\\Cauliflowers_-_20051021.jpg",
+      "price" : 1.75,
+      "title" : "Cauliflower"
+    },
+    "-Krvs7RuXkSiDZvBZmey" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\1024px-Bananas.jpg",
+      "price" : 1.25,
+      "title" : "Banana"
+    },
+    "-KrvsKZbI_mpo3hJg7G7" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\Orange-Fruit-Pieces.jpg",
+      "price" : 1.7,
+      "title" : "Orange"
+    },
+    "-KrvsRNOg-ftEUM3Te-F" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\Red_Apple.jpg",
+      "price" : 2,
+      "title" : "Apple"
+    },
+    "-Krvs_CiDXdiZ3yd0PUp" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\Kyoho-grape.jpg",
+      "price" : 2,
+      "title" : "Grape"
+    },
+    "-KrvsfKjGc0NCM0prc0I" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\Autumn_Red_peaches.jpg",
+      "price" : 2,
+      "title" : "Peach"
+    },
+    "-KrvsrmX3I1-Bo6eFCdx" : {
+      "category" : "seasonings",
+      "imageUrl" : "assets\\Images\\Cinnamon-other.jpg",
+      "price" : 0.5,
+      "title" : "Cinnamon Sticks"
+    },
+    "-KrvsxvxOmTzMXOSx7iG" : {
+      "category" : "seasonings",
+      "imageUrl" : "assets\\Images\\Saffron_Crop.jpg",
+      "price" : 3,
+      "title" : "Saffron"
+    },
+    "-Krvt8G_naLT8Pg_Fob6" : {
+      "category" : "seasonings",
+      "imageUrl" : "assets\\Images\\Seasoning-Powder-Curry-Spice-Ingredient-Turmeric-2344157.jpg",
+      "price" : 0.75,
+      "title" : "Ground Turmeric"
+    },
+    "-KrvtXWZvGv-mr0IFbAA" : {
+      "category" : "seasonings",
+      "imageUrl" : "assets\\Images\\Ingredient-Herb-Seasoning-Seeds-Food-Coriander-390015.jpg",
+      "price" : 0.5,
+      "title" : "Coriander Seeds"
+    },
+    "-Krvtvc_uQyh6dzI-J3R" : {
+      "category" : "bread",
+      "imageUrl" : "assets\\Images\\Fabrication_du_lavash_Noravank.jpg",
+      "price" : 1.25,
+      "title" : "Lavash Bread"
+    },
+    "-Krvu3aL-m-ku0yCnQGr" : {
+      "category" : "bread",
+      "imageUrl" : "assets\\Images\\Bagel-Plain-Alt.jpg",
+      "price" : 1,
+      "title" : "Bagel Bread"
+    },
+    "-KrvuH_bkBBZDW0NCwfl" : {
+      "category" : "fruits",
+      "imageUrl" : "assets\\Images\\Strawberries.jpg",
+      "price" : 1.95,
+      "title" : "Strawberry"
+    },
+    "-KrvuT7GtYfsFvmQfgoj" : {
+      "category" : "bread",
+      "imageUrl" : "assets\\Images\\pexels-photo-416607.jpeg",
+      "price" : 1.25,
+      "title" : "Baguette Bread"
+    }
+  },
+  "shopping-carts" : {
+    "-LJFhCjYSASyxsAv9ga7" : {
+      "dateCreated" : 1533583612899
+    }
+  },
+  "users" : {
+    "tBEEuSeMTaOHH44HlLF5Wb3sqx03" : {
+      "email" : "dimitrov333@hotmail.com",
+      "isAdmin" : true,
+      "name" : "Nikola Dimitrov"
+    }
+  }
+}

@@ -18,7 +18,7 @@ export class ShoppingCart {
         });
     }
 
-    getQuantity(product: Product) {
+    getQuantity(product: Product | ShoppingCartItem) {
         const item = this.itemsObject[product.key];
         return item ? item.quantity : 0;
     }

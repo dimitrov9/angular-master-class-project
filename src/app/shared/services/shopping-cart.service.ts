@@ -18,7 +18,10 @@ export class ShoppingCartService {
     return this.db.object('/shopping-carts/' + cartId)
       .snapshotChanges()
       .pipe(
-        map(a => new ShoppingCart(a.key, a.payload.val().items))
+        map(a => {
+          const val = a.payload.val();
+          return new ShoppingCart(a.key, val ? val.items : []);
+        })
       );
   }
 
