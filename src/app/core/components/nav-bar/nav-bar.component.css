@@ -1,0 +1,16 @@
+.nav-bar {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.nav-icon {
+    min-width: 56px;
+}
+
+.fill-remaining-space {
+    /*This fills the remaining space, by using flexbox.  
+   Every toolbar row uses a flexbox row layout. */
+   flex: 1 1 auto;
+ }

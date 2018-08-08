@@ -1,0 +1,55 @@
+<mat-toolbar color="accent" class="nav-bar">
+
+  <!-- Home button -->
+  <a mat-button routerLink="/" class="nav-icon">
+    <mat-icon>home</mat-icon>
+  </a>
+
+  <!-- Shopping cart button -->
+  <a *ngIf="cart$ | async as cart" class="nav-icon" 
+    matBadge="{{cart.totalItemsCount}}" mat-button routerLink="/shopping-cart">
+    <mat-icon>shopping_cart</mat-icon>
+  </a>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+
+    <!-- Username button for logged in us ers -->
+    <button *ngIf="appUser; else anonymousUser" mat-button [matMenuTriggerFor]="usernameMenu">
+      {{ appUser?.name }}
+      <i class="material-icons">
+        arrow_drop_down
+      </i>
+    </button>
+
+    <!-- Login Button for anonymous users -->
+    <ng-template #anonymousUser>
+      <a mat-button routerLink="/login">Log in</a>
+    </ng-template>
+
+    <!-- Menu for username button -->
+    <mat-menu #usernameMenu="matMenu" [overlapTrigger]="false" yPosition="below">
+      <ng-container *ngIf="true;then usernameMenuTemplate"></ng-container>
+      <ng-template #usernameMenuTemplate>
+        <a mat-menu-item routerLink="/my-orders">My Orders</a>
+
+        <ng-container *ngIf="appUser?.isAdmin">
+          <a mat-menu-item routerLink="/admin/orders">Manage Orders</a>
+          <a mat-menu-item routerLink="/admin/products">Manage Products</a>
+        </ng-container>
+
+        <a mat-menu-item (click)="logout()">Log Out</a>
+      </ng-template>
+    </mat-menu>
+  </div>
+  <!-- Menu button to toggle the main menu for smaller devices -->
+  <button mat-button [mat-menu-trigger-for]="xsMenu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<!-- The main menu for smaller devices -->
+<mat-menu x-position="before" #xsMenu="matMenu" [overlapTrigger]="false">
+  <a *ngIf="!appUser;else usernameMenuTemplate" mat-menu-item routerLink="/login">Log in</a>
+</mat-menu>
